@@ -5,29 +5,6 @@ test.beforeEach(async ({page}) => {
     await page.goto('')
 })
 
-async function addTodo(page:Page,todo:string) {
-    const input= page.getByRole('textbox', { name: 'What needs to be done?' })
-    await input.fill(todo)
-    await input.press('Enter')
-    console.log(`Added ${todo}`)
-}
-
-async function checkTodo(page:Page,todo:string) {
-    const todoItem=page.locator('.todo-list li').filter({
-        hasText:todo
-    })
-
-    await todoItem.locator('.toggle').check()
-}
-
-async function deleteTodo(page:Page,todo:string) {
-    const todoItem=page.locator('.todo-list li').filter({
-        hasText:todo
-    })
-    await todoItem.hover()
-    await todoItem.locator('.destroy').click()
-}
-
 
 test('Add a new todo item',async ({page})=>{
     const myTodo='Learn Playwright'
