@@ -19,14 +19,11 @@ test('Select Option 1',async ({page}) => {
 test('Select G1 O1', async ({ page }) => {
     console.log('Step 1: Navigating');
     await page.goto('https://demoqa.com/select-menu');
-    console.log('Step 2: Finding dropdown');
     const dropBtn = page.locator('#withOptGroup');
     await dropBtn.click();
-    console.log('Step 3: Dropdown opened');
     await page.getByText('Group 1, option 1', {
         exact: true
     }).click();
-    console.log('Step 4: Option selected');
     await expect(page.locator('#withOptGroup'))
         .toContainText('Group 1, option 1');
     console.log('Step 5: Assertion passed');
