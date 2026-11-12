@@ -2,13 +2,13 @@ import {test,expect} from '@playwright/test'
 
 //Dropdown Test
 test('Select Option 2',async({page})=>{
-    await page.goto('https://the-internet.herokuapp.com/dropdown?utm_source=chatgpt.com')
+    await page.goto('https://the-internet.herokuapp.com/dropdown')
     await page.locator('#dropdown').selectOption('Option 2')
     await expect(page.locator('#dropdown')).toHaveValue('2')
 })
 
 test('Select Option 1',async ({page}) => {
-     await page.goto('https://the-internet.herokuapp.com/dropdown?utm_source=chatgpt.com')
+     await page.goto('https://the-internet.herokuapp.com/dropdown')
      const drop= page.locator('#dropdown')
      await drop.selectOption({
         label:'Option 1'
