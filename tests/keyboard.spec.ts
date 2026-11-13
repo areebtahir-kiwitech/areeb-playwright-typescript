@@ -1,10 +1,11 @@
 import {test,expect} from '@playwright/test'
 
+//needs fix
 test('Press Enter',async ({page}) => {
-    await page.goto('https://the-internet.herokuapp.com/key_presses?')
+    await page.goto('https://the-internet.herokuapp.com/key_presses')
     const input=page.locator('#target')
     await input.press('Enter')
-    await expect(page.locator('#result')).toHaveText('You entered: Enter')
+    await expect(page.locator('#result')).toHaveText('You entered: ENTER')
 })
 
 test('Combine Keys',async ({page}) => {
